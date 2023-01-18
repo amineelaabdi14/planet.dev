@@ -8,10 +8,9 @@
     height: 300px;
     box-shadow: 10px;
 }
-#login-page,body{
+#login-page,body,#dashboard{
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
 }
 .my-input {
     border: solid rgb(177, 177, 177) 1px;
@@ -29,4 +28,29 @@ button[name="admin-login"]{
 }
 #dev{
     color: #00c010;
+}
+#table-container{
+    width: 70vw;
+    margin: auto;
+    max-height: 400px;
+}
+#add-article{
+    width: 200px;
+    border: none;
+    background-color: #00c010;
+    color: white;
+    border-radius: 3px;
+}
+#add-multiple{
+    border: none;
+    background-color: white;
+}
+#navbar{
+    height: 60px;
+}
+.stat{
+    border-radius: 6px;
+    background-color: #00c010;
+    width: 250px;
+    height: 120px;
 }
