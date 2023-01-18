@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+#login-container {
+    background-color: white;
+    width: 450px;
+    height: 300px;
+    box-shadow: 10px;
+}
+#login-page,body{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+.my-input {
+    border: solid rgb(177, 177, 177) 1px;
+    border-radius: 3px;
+    width: 100%;
+    height: 45px;
+}
+button[name="admin-login"]{
+    color: white;
+    background-color: #00c010;
+    border: 0;
+    border-radius: 3px;
+    height: 42px;
+    width: 100%;
+}
+#dev{
+    color: #00c010;
+}
