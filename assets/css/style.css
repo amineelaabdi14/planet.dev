@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 *{
     font-family: 'Open Sans', sans-serif;
+    list-style: none;
 }
 #login-container {
     background-color: white;
@@ -47,10 +48,52 @@ button[name="admin-login"]{
 }
 #navbar{
     height: 60px;
+    width: 100vw;
 }
 .stat{
     border-radius: 6px;
     background-color: #00c010;
     width: 250px;
     height: 120px;
+}
+.sidebar-item{
+    width: 90%;
+    padding-left: 30px;
+}
+
+#sidebar{
+    width: 250px;
+    height: 100vh;
+}
+#dashboard {
+    padding-left: 250px;
+}
+@media screen and (max-width:750px){
+    .sidebar-item span{
+        display: none;
+    }
+    .sidebar-item{
+        width: 40px;
+        padding-left: 10px;
+    }
+    #sidebar {
+        width: 60px;
+    }
+    #dashboard{
+        padding-left: 60px;
+    }
+    #stats{
+        flex-direction: column;
+        align-items: center;
+    }
+    #stats *{
+        margin-top: 10px;
+    }
+}
+.active-icon{
+    background-color: #00c010;
+    border-radius: 3px;
+}
+.active-icon *{
+    color: white;
 }
