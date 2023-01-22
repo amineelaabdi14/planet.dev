@@ -35,13 +35,6 @@ button[name="admin-login"]{
     margin: auto;
     max-height: 400px;
 }
-#add-article{
-    width: 200px;
-    border: none;
-    background-color: #00c010;
-    color: white;
-    border-radius: 3px;
-}
 #add-multiple{
     border: none;
     background-color: white;
@@ -96,4 +89,13 @@ button[name="admin-login"]{
 }
 .active-icon *{
     color: white;
+}
+#add-article ,#add-author{
+    height: 35px;
+    margin-top: 10px;
+    width: 200px;
+    border: none;
+    background-color: #00c010;
+    color: white;
+    border-radius: 3px;
 }
