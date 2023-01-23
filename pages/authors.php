@@ -1,3 +1,7 @@
+<?php 
+    $_SESSION['page']='authors';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

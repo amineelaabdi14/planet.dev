@@ -1,3 +1,7 @@
+<?php 
+    $_SESSION['page']='dashboard';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

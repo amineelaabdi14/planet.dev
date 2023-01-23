@@ -1,3 +1,7 @@
+<?php 
+    $_SESSION['page']='categories';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
