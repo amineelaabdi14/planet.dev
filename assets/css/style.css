@@ -3,6 +3,9 @@
     font-family: 'Open Sans', sans-serif;
     list-style: none;
 }
+body{
+    overflow-x: hidden;
+}
 #login-container {
     background-color: white;
     width: 450px;

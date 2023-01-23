@@ -4,5 +4,5 @@
 
     function autoload($className): void
     {
-        require_once "../classes/$className.php";
+        require_once "../classes/$className.classe.php";
     }

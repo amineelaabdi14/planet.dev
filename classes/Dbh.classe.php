@@ -1,6 +1,6 @@
 <?php
 
-class Database
+class Dbh
 {
     private static string $dbHost = "localhost";
     private static string $dbName = "planet_dev";
