@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+*{
+    font-family: 'Open Sans', sans-serif;
+    list-style: none;
+}
+#login-container {
+    background-color: white;
+    width: 450px;
+    height: 300px;
+    box-shadow: 10px;
+}
+#login-page,body,#dashboard{
+    height: 100vh;
+    width: 100vw;
+}
+.my-input {
+    border: solid rgb(177, 177, 177) 1px;
+    border-radius: 3px;
+    width: 100%;
+    height: 45px;
+}
+button[name="admin-login"]{
+    color: white;
+    background-color: #00c010;
+    border: 0;
+    border-radius: 3px;
+    height: 42px;
+    width: 100%;
+}
+#dev{
+    color: #00c010;
+}
+#table-container{
+    width: 70vw;
+    margin: auto;
+    max-height: 400px;
+}
+#add-multiple{
+    border: none;
+    background-color: white;
+}
+#navbar{
+    height: 60px;
+    width: 100vw;
+}
+.stat{
+    border-radius: 6px;
+    background-color: #00c010;
+    width: 250px;
+    height: 120px;
+}
+.sidebar-item{
+    width: 90%;
+    padding-left: 30px;
+}
+
+#sidebar{
+    width: 250px;
+    height: 100vh;
+}
+#dashboard {
+    padding-left: 250px;
+}
+@media screen and (max-width:750px){
+    .sidebar-item span{
+        display: none;
+    }
+    .sidebar-item{
+        width: 40px;
+        padding-left: 10px;
+    }
+    #sidebar {
+        width: 60px;
+    }
+    #dashboard{
+        padding-left: 60px;
+    }
+    #stats{
+        flex-direction: column;
+        align-items: center;
+    }
+    #stats *{
+        margin-top: 10px;
+    }
+}
+.active-icon{
+    background-color: #00c010;
+    border-radius: 3px;
+}
+.active-icon *{
+    color: white;
+}
+#add-article ,#add-author{
+    height: 35px;
+    margin-top: 10px;
+    width: 200px;
+    border: none;
+    background-color: #00c010;
+    color: white;
+    border-radius: 3px;
+}
