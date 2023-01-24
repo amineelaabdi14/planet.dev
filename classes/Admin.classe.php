@@ -49,8 +49,19 @@ class Admin {
 
     }
 
-    public function add_article(){
-
+    public function add_article($article){
+        $conn=Dbh::connect();
+        try {
+            $sql="INSERT INTO `articles`( `article_title`, `article_content`, `article_category`, `article_author`) VALUES (?,?,?,?)";
+            $stmt=$conn->prepare($sql);
+            $stmt->execute([$article['name'],$article['content'],1,1]);
+            return 'true';
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+            return 'false';
+        }finally{
+             Dbh::disconnect();
+        }
     }
 
     public function delete_article(){

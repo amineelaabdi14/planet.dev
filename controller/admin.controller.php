@@ -1,8 +1,14 @@
 <?php
 require '../classes/Dbh.classe.php';
 require_once '../includes/autoload.inc.php';
+
+
+session_start();
+
+
 if(isset($_POST['admin-login']))   login_admin(); 
 if(isset($_POST['admin-register']))   register_admin(); 
+if(isset($_GET['add-article']))   add_article(); 
 
 
 function login_admin(){
@@ -11,6 +17,7 @@ function login_admin(){
     $infos=Admin::login($email,$password);
     if($infos){
         $admin=new Admin($infos[0],$infos[1],$email,$infos[2]);
+        $_SESSION['admin']=$admin;
         require '../pages/dashboard.php';
         return 0;
     }
@@ -45,3 +52,11 @@ function register_admin(){
         require '../pages/login.php';
     }
 }   
+
+function add_article(){
+    // print_r($_SESSION);
+    $json=json_decode(file_get_contents('php://input'),true);
+    foreach($json as $article){
+        echo $_SESSION['admin']->add_article($article);
+    }
+}
