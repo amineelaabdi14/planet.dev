@@ -18,7 +18,7 @@
         <?php  require '../includes/sidebar.inc.php'; ?>
         <div id="dashboard" class="">
             <div class="d-flex justify-content-end mt-5 mb-5 me-5">
-                <button  id="add-author" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Add</button>
+                <button  id="add-author" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-right:70px;">Add</button>
             </div>
                
                 <div id="table-container" class="shadow table-responsive mb-4" style="background-color: white;">
@@ -105,22 +105,20 @@
         </div>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form action="">
-                <label for="category">CATEGORY</label>
-                <input type="text" name="category" class="my-input">
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn text-white" style="background-color:#00c010;">Save changes</button>
-        </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <label for="category">CATEGORY</label>
+                        <input type="text" name="category" class="my-input">
+                        <button type="button" class="btn text-white w-100 mt-4" style="background-color:#00c010;">Save changes</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
