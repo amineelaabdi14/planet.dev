@@ -22,19 +22,23 @@
                 </div>';
         }
         ?>
-        <div id="login-container" class="rounded-1 shadow container">
+        <div id="login-container" class="rounded-1 shadow container" style="height:400px;">
             <form action="../controller/admin.controller.php" method="POST" class="d-flex flex-column w-100 pt-4 py-3">
                 <div class="m-auto w-100 mb-4">
-                    <label for="login-email" class="fw-bold">EMAIL</label><br>
-                    <input type="email-login" name="login-email" class="my-input">
+                    <label for="register-name" class="fw-bold">NAME</label><br>
+                    <input type="text" name="register-name" class="my-input">
+                </div>
+                <div class="m-auto w-100 mb-4">
+                    <label for="register-email" class="fw-bold">EMAIL</label><br>
+                    <input type="email" name="register-email" class="my-input">
                 </div>
 
-                <div class="m-auto w-100 mb-3">
-                    <label for="login-password" class="fw-bold">PASSWORD</label><br>
-                    <input type="password" name="login-password" class="my-input">
-                    <a href="register.php" style="text-decoration:none;">Sign up</a>
+                <div class="m-auto w-100 mb-4">
+                    <label for="register-password" class="fw-bold">PASSWORD</label><br>
+                    <input type="password" name="register-password" class="my-input">
+                    <a href="login.php" style="text-decoration:none;">Already have an accont</a>
                 </div>
-                <button type="submit" name="admin-login">LOGIN</button>
+                <button type="submit" name="admin-register">LOGIN</button>
             </form>
         </div>
     </div>
