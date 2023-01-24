@@ -16,7 +16,7 @@
     <div id="login-page" class="d-flex flex-column align-items-center justify-content-center" style="background-image: url(../assets/images/bg.jpg);">
         <?php 
         if(isset($error)) {
-            echo'<div class="alert alert-danger alert-dismissible fade show position-absolute top-0 me-3" role="alert" style="margin-top:60px;width:100%;">
+            echo'<div class="alert alert-warning alert-dismissible fade show position-absolute top-0 me-3" role="alert" style="margin-top:60px;width:100%;">
                     <strong>'.$error.'</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>';
@@ -29,9 +29,10 @@
                     <input type="email-login" name="login-email" class="my-input">
                 </div>
 
-                <div class="m-auto w-100 mb-5">
+                <div class="m-auto w-100 mb-3">
                     <label for="login-password" class="fw-bold">PASSWORD</label><br>
                     <input type="password" name="login-password" class="my-input">
+                    <a href="register.php" style="text-decoration:none;">Sign up</a>
                 </div>
                 <button type="submit" name="admin-login">LOGIN</button>
             </form>

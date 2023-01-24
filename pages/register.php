@@ -16,7 +16,7 @@
     <div id="login-page" class="d-flex flex-column align-items-center justify-content-center" style="background-image: url(../assets/images/bg.jpg);">
         <?php 
         if(isset($error)) {
-            echo'<div class="alert alert-danger alert-dismissible fade show position-absolute top-0 me-3" role="alert" style="margin-top:60px;width:100%;">
+            echo'<div class="alert alert-warning alert-dismissible fade show position-absolute top-0 me-3" role="alert" style="margin-top:60px;width:100%;">
                     <strong>'.$error.'</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>';
@@ -25,17 +25,18 @@
         <div id="login-container" class="rounded-1 shadow container" style="height:400px;">
             <form action="../controller/admin.controller.php" method="POST" class="d-flex flex-column w-100 pt-4 py-3">
                 <div class="m-auto w-100 mb-4">
-                    <label for="register-email" class="fw-bold">EMAIL</label><br>
-                    <input type="email-register" name="login-email" class="my-input">
+                    <label for="register-name" class="fw-bold">NAME</label><br>
+                    <input type="text" name="register-name" class="my-input">
                 </div>
                 <div class="m-auto w-100 mb-4">
-                    <label for="confirm-email-register" class="fw-bold">CONFIRM EMAIL</label><br>
-                    <input type="confirm-email-register" name="login-email" class="my-input">
+                    <label for="register-email" class="fw-bold">EMAIL</label><br>
+                    <input type="email" name="register-email" class="my-input">
                 </div>
 
-                <div class="m-auto w-100 mb-5">
+                <div class="m-auto w-100 mb-4">
                     <label for="register-password" class="fw-bold">PASSWORD</label><br>
                     <input type="password" name="register-password" class="my-input">
+                    <a href="login.php" style="text-decoration:none;">Already have an accont</a>
                 </div>
                 <button type="submit" name="admin-register">LOGIN</button>
             </form>
