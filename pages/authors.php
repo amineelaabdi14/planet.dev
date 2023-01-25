@@ -1,4 +1,5 @@
 <?php 
+    require'../controller/admin.controller.php';
     $_SESSION['page']='authors';
 ?>
 

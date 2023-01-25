@@ -1,6 +1,6 @@
 <?php 
+    require'../controller/admin.controller.php';
     $_SESSION['page']='dashboard';
-    require'../controller/admin.controller.php'
 ?>
 
 <!DOCTYPE html>

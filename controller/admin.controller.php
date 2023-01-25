@@ -96,3 +96,14 @@ function set_authors(){
         echo '<option value="'.$author["author_id"].'">'.$author["author_name"].'</option>';
     }
 }
+
+function show_categories(){
+    $categories=$_SESSION['admin']->get_categories();
+    foreach($categories as $category){
+        echo '<tr>';
+        echo '<td class="text-left">'.$category["category_id"].'</td>';
+        echo '<td class="text-left">'.$category["category_name"].'</td>';
+        echo'<td class="text-center"><i class=" text-primary fa-solid fa-pen"></i><i class="fa-solid text-danger fa-trash-can"></i></td>';
+        echo '</tr>';
+    }
+}

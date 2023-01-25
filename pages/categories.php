@@ -1,4 +1,5 @@
 <?php 
+    require'../controller/admin.controller.php';
     $_SESSION['page']='categories';
 ?>
 
@@ -25,79 +26,13 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>hamid</th>
-                                    <th>hamid</th>
-                                    <th>hamid</th>
-                                    <th>hamid</th>
+                                    <th class="text-left" >ID</th>
+                                    <th class="text-left">Category</th>
+                                    <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                </tr>
-                                <tr>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                </tr>
-                                <tr>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                </tr>
-                                <tr>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                </tr>
-                                <tr>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                </tr>
-                                <tr>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                </tr>
-                                <tr>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                </tr>
-                                <tr>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                </tr>
-                                <tr>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                </tr>
-                                <tr>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                </tr>
-                                <tr>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                    <td>content</td>
-                                </tr>
+                                <?php show_categories(); ?>
                             </tbody>
                         </table>
                     </div>
