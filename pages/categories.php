@@ -112,10 +112,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="../controller/admin.controller.php" method="POST">
                         <label for="category">CATEGORY</label>
                         <input type="text" name="category" class="my-input">
-                        <button type="button" class="btn text-white w-100 mt-4" style="background-color:#00c010;">Save changes</button>
+                        <button type="submit" name="add-category" class="btn text-white w-100 mt-4" style="background-color:#00c010;">Save changes</button>
                     </form>
                 </div>
             </div>

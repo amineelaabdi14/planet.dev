@@ -46,7 +46,18 @@ class Admin {
     }
 
     public function get_articles(){
-
+        $conn=Dbh::connect();
+        try {
+            $sql="SELECT  `article_title`, `article_content`, categories.category_name, authors.author_name  FROM `articles` INNER JOIN `categories`on category_id=article_category INNER JOIN `authors`on author_id=article_author ";
+            $stmt=$conn->query($sql);
+            $data=$stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $data;
+        } catch (\Throwable $th) {  
+            echo $th->getMessage();
+            return false;
+        }finally{
+             Dbh::disconnect();
+        }
     }
 
     public function add_article($article){
@@ -55,10 +66,10 @@ class Admin {
             $sql="INSERT INTO `articles`( `article_title`, `article_content`, `article_category`, `article_author`) VALUES (?,?,?,?)";
             $stmt=$conn->prepare($sql);
             $stmt->execute([$article['name'],$article['content'],1,1]);
-            return 'true';
+            return true;
         } catch (\Throwable $th) {
             echo $th->getMessage();
-            return 'false';
+            return false;
         }finally{
              Dbh::disconnect();
         }
@@ -69,5 +80,62 @@ class Admin {
     }
     public function update_article($article_id){
         
+    }
+    public function add_author($author){
+        $conn=Dbh::connect();
+        try {
+            $sql="INSERT INTO `authors`( `author_name`) VALUES (?)";
+            $stmt=$conn->prepare($sql);
+            $stmt->execute([$author]);
+            return true;
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+            return false;
+        }finally{
+             Dbh::disconnect();
+        }
+    }
+    public function add_category($category){
+        $conn=Dbh::connect();
+        try {
+            $sql="INSERT INTO `categories`( `category_name`) VALUES (?)";
+            $stmt=$conn->prepare($sql);
+            $stmt->execute([$category]);
+            return true;
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+            return false;
+        }finally{
+             Dbh::disconnect();
+        }
+    }
+
+    public function get_categories(){
+        $conn=Dbh::connect();
+        try {
+            $sql="SELECT * FROM categories";
+            $stmt=$conn->query($sql);
+            $data=$stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $data;
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+            return false;
+        }finally{
+             Dbh::disconnect();
+        }
+    }
+    public function get_authors(){
+        $conn=Dbh::connect();
+        try {
+            $sql="SELECT * FROM authors";
+            $stmt=$conn->query($sql);
+            $data=$stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $data;
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+            return false;
+        }finally{
+             Dbh::disconnect();
+        }
     }
 }

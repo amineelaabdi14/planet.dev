@@ -9,6 +9,8 @@ session_start();
 if(isset($_POST['admin-login']))   login_admin(); 
 if(isset($_POST['admin-register']))   register_admin(); 
 if(isset($_GET['add-article']))   add_article(); 
+if(isset($_POST['add-author']))   add_author(); 
+if(isset($_POST['add-category']))   add_category(); 
 
 
 function login_admin(){
@@ -54,9 +56,43 @@ function register_admin(){
 }   
 
 function add_article(){
-    // print_r($_SESSION);
     $json=json_decode(file_get_contents('php://input'),true);
     foreach($json as $article){
-        echo $_SESSION['admin']->add_article($article);
+        $_SESSION['admin']->add_article($article);
+    }
+    require '../pages/dashboard.php';
+}
+
+function  add_author(){
+    $author=$_POST['author'];
+    $_SESSION['admin']->add_author($author);
+}
+
+function add_category(){
+    $category=$_POST['category'];
+    $_SESSION['admin']->add_category($category);
+}
+
+function show_articles(){
+    $articles=$_SESSION['admin']->get_articles();
+    foreach($articles as $article){
+        echo '<tr>
+        <td>'.$article['article_title'].'</td>
+        <td>'.$article['category_name'].'</td>
+        <td>'.$article['author_name'].'</td>
+        <td>'.$article['article_content'].'</td>
+        </tr>';
+    }
+}
+function set_categories(){
+    $categories=$_SESSION['admin']->get_categories();
+    foreach($categories as $category){
+        echo '<option value="'.$category["category_id"].'">'.$category["category_name"].'</option>';
+    }
+}
+function set_authors(){
+    $authors=$_SESSION['admin']->get_authors();
+    foreach($authors as $author){
+        echo '<option value="'.$author["author_id"].'">'.$author["author_name"].'</option>';
     }
 }

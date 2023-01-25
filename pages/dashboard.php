@@ -1,5 +1,6 @@
 <?php 
     $_SESSION['page']='dashboard';
+    require'../controller/admin.controller.php'
 ?>
 
 <!DOCTYPE html>
@@ -30,79 +31,15 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>hamid</th>
-                            <th>hamid</th>
-                            <th>hamid</th>
-                            <th>hamid</th>
+                            <th>Articles Name</th>
+                            <th>Category</th>
+                            <th>Author</th>
+                            <th>Content</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                        </tr>
-                        <tr>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                        </tr>
-                        <tr>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                        </tr>
-                        <tr>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                        </tr>
-                        <tr>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                        </tr>
-                        <tr>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                        </tr>
-                        <tr>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                        </tr>
-                        <tr>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                        </tr>
-                        <tr>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                        </tr>
-                        <tr>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                        </tr>
-                        <tr>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                            <td>content</td>
-                        </tr>
+                        <?php
+                        show_articles(); ?>
                     </tbody>
                 </table>
             </div>
@@ -130,15 +67,11 @@
                                 <input type="text" name="article-name" class="my-input">
                                 <label for="article-cat">Category</label>
                                 <select type="text" name="article-cat" class="my-input">
-                                    <option value="1">cat1</option>
-                                    <option value="2">cat2</option>
-                                    <option value="3">cat3</option>
+                                    <?php set_categories(); ?>
                                 </select>
                                 <label for="article-auth">Author</label>
                                 <select type="text" name="article-auth" class="my-input">
-                                    <option value="1">auth1</option>
-                                    <option value="2">auth2</option>
-                                    <option value="3">auth3</option>
+                                    <?php set_authors(); ?>
                                 </select>
                                 <label for="content" class="">Content</label>
                                 <textarea rows="5" class="w-100" name="content" ></textarea>
