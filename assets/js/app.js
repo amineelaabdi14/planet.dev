@@ -18,11 +18,6 @@ function send_data(){
             content:article_content
         }
         data.push(row);
-        // formData.append(`name_${c}`, article_name);
-        // formData.append(`category_${c}`, article_cat);
-        // formData.append(`author_${c}`, article_auth);
-        // formData.append(`content_${c}`, article_content);
-        // c++;
     }
     fetch('../controller/admin.controller.php?add-article', {
         method: 'POST',
@@ -48,4 +43,10 @@ function clearBtn(){
 }
 function delete_category(id){
         window.location.href = `../controller/admin.controller.php?delete-category=${id}`;
+}
+function edit_article_form_fill(element){
+    document.querySelector('input[name="article-name"]').value=element.parentElement.children[0].innerText;
+    document.querySelector('select[name="article-cat"]').value=element.parentElement.children[1].innerText;
+    document.querySelector('select[name="article-auth"]').value=element.parentElement.children[2].innerText;
+    document.querySelector('textarea[name="content"]').value=element.parentElement.children[3].innerText;
 }

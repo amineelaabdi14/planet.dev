@@ -48,7 +48,7 @@ class Admin {
     public function get_articles(){
         $conn=Dbh::connect();
         try {
-            $sql="SELECT  `article_title`, `article_content`, categories.category_name, authors.author_name  FROM `articles` INNER JOIN `categories`on category_id=article_category INNER JOIN `authors`on author_id=article_author ";
+            $sql="SELECT  `article_id`,`article_title`, `article_content`, categories.category_name, authors.author_name  FROM `articles` INNER JOIN `categories`on category_id=article_category INNER JOIN `authors`on author_id=article_author ";
             $stmt=$conn->query($sql);
             $data=$stmt->fetchAll(\PDO::FETCH_ASSOC);
             return $data;
@@ -65,7 +65,7 @@ class Admin {
         try {
             $sql="INSERT INTO `articles`( `article_title`, `article_content`, `article_category`, `article_author`) VALUES (?,?,?,?)";
             $stmt=$conn->prepare($sql);
-            $stmt->execute([$article['name'],$article['content'],1,1]);
+            $stmt->execute([$article['name'],$article['content'],$article['category'],$article['author']]);
             return true;
         } catch (\Throwable $th) {
             echo $th->getMessage();

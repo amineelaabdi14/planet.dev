@@ -62,7 +62,7 @@ function add_article(){
     foreach($json as $article){
         $_SESSION['admin']->add_article($article);
     }
-    require '../pages/dashboard.php';
+    header('Location:../pages/categories.php');
 }
 
 function  add_author(){
@@ -78,25 +78,29 @@ function add_category(){
 
 function show_articles(){
     $articles=$_SESSION['admin']->get_articles();
+    // echo'<pre>';
+    // var_dump($articles);
+    // echo'</pre>';
     foreach($articles as $article){
         echo '<tr>
         <td>'.$article['article_title'].'</td>
         <td>'.$article['category_name'].'</td>
         <td>'.$article['author_name'].'</td>
         <td>'.$article['article_content'].'</td>
+        <td id="'.$article['article_id'].'"><i class=" text-primary fa-solid fa-pen me-5" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="edit_article_form_fill(this.parentElement)"></i><i class="fa-solid text-danger fa-trash-can"></i></td>
         </tr>';
     }
 }
 function set_categories(){
     $categories=$_SESSION['admin']->get_categories();
     foreach($categories as $category){
-        echo '<option value="'.$category["category_id"].'">'.$category["category_name"].'</option>';
+        echo '<option value="'.$category["category_id"].'" data-category="'.$category["category_name"].'">'.$category["category_name"].'</option>';
     }
 }
 function set_authors(){
     $authors=$_SESSION['admin']->get_authors();
     foreach($authors as $author){
-        echo '<option value="'.$author["author_id"].'">'.$author["author_name"].'</option>';
+        echo '<option value="'.$author["author_name"].'">'.$author["author_name"].'</option>';
     }
 }
 

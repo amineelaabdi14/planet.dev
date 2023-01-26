@@ -23,7 +23,7 @@
             </div>
                
                 <div id="table-container" class="shadow table-responsive mb-4" style="background-color: white;">
-                        <table class="table">
+                        <table class="table rounded p-2">
                             <thead>
                                 <tr>
                                     <th>hamid</th>

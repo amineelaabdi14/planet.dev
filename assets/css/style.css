@@ -18,7 +18,7 @@ body{
 }
 .my-input {
     border: solid rgb(177, 177, 177) 1px;
-    border-radius: 3px;
+    border-radius: 6px;
     width: 100%;
     height: 45px;
 }
@@ -26,7 +26,7 @@ button[name="admin-login"],button[name="admin-register"]{
     color: white;
     background-color: #00c010;
     border: 0;
-    border-radius: 3px;
+    border-radius: 6px;
     height: 42px;
     width: 100%;
 }
@@ -36,7 +36,6 @@ button[name="admin-login"],button[name="admin-register"]{
 #table-container{
     width: 70vw;
     margin: auto;
-    max-height: 400px;
 }
 #add-multiple{
     border: none;
@@ -88,7 +87,7 @@ button[name="admin-login"],button[name="admin-register"]{
 }
 .active-icon{
     background-color: #00c010;
-    border-radius: 3px;
+    border-radius: 6px;
 }
 .active-icon *{
     color: white;
@@ -100,5 +99,5 @@ button[name="admin-login"],button[name="admin-register"]{
     border: none;
     background-color: #00c010;
     color: white;
-    border-radius: 3px;
+    border-radius: 6px;
 }
