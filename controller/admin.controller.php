@@ -9,6 +9,8 @@ session_start();
 if(isset($_POST['admin-login']))   login_admin(); 
 if(isset($_POST['admin-register']))   register_admin(); 
 if(isset($_GET['add-article']))   add_article(); 
+if(isset($_GET['delete-category']))   delete_category(); 
+if(isset($_POST['edit-category']))   edit_category(); 
 if(isset($_POST['add-author']))   add_author(); 
 if(isset($_POST['add-category']))   add_category(); 
 
@@ -71,6 +73,7 @@ function  add_author(){
 function add_category(){
     $category=$_POST['category'];
     $_SESSION['admin']->add_category($category);
+    header('Location:../pages/categories.php');
 }
 
 function show_articles(){
@@ -103,7 +106,24 @@ function show_categories(){
         echo '<tr>';
         echo '<td class="text-left">'.$category["category_id"].'</td>';
         echo '<td class="text-left">'.$category["category_name"].'</td>';
-        echo'<td class="text-center"><i class=" text-primary fa-solid fa-pen"></i><i class="fa-solid text-danger fa-trash-can"></i></td>';
+        echo'<td class="text-center" id="'.$category["category_id"].'"><i class=" text-primary fa-solid fa-pen me-5" onclick="edit_category_form_fill(this.parentElement)" data-bs-toggle="modal" data-bs-target="#exampleModal"></i><i class="fa-solid text-danger fa-trash-can" onclick="delete_category(this.parentElement.id)"></i></td>';
         echo '</tr>';
+    }
+}
+
+function edit_category(){
+    $id=$_POST['edit-category-id'];
+    $name=$_POST['category'];
+    if($_SESSION['admin']->edit_category($id,$name))   header('Location:../pages/categories.php');
+    else{
+
+    }
+}
+
+function delete_category(){
+    $id=$_GET['delete-category'];
+    if($_SESSION['admin']->delete_category($id)) header('Location:../pages/categories.php');
+    else{
+
     }
 }

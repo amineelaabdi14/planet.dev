@@ -138,4 +138,30 @@ class Admin {
              Dbh::disconnect();
         }
     }
+    public function edit_category($id,$name){
+        $conn=Dbh::connect();
+        try {
+            $sql="UPDATE categories SET category_name='$name' where category_id=$id";
+            $stmt=$conn->query($sql);
+            return true;
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+            return false;
+        }finally{
+             Dbh::disconnect();
+        }
+    }
+    public function delete_category($id){
+        $conn=Dbh::connect();
+        try {
+            $sql="DELETE FROM categories WHERE category_id=$id";
+            $stmt=$conn->query($sql);
+            return true;
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+            return false;
+        }finally{
+             Dbh::disconnect();
+        }
+    }
 }

@@ -36,3 +36,16 @@ function send_data(){
         console.log(result);
     })
 }
+
+function edit_category_form_fill(element){
+    // console.log(document.querySelector('input[name="category"]'));
+    document.querySelector('input[name="category"]').value=element.parentElement.children[1].innerText;
+    document.querySelector('button[name="add-category"]').setAttribute('name','edit-category');
+    document.querySelector('input[name="edit-category-id"]').value=element.id;
+}
+function clearBtn(){
+    document.querySelector('button[name="edit-category"]').setAttribute('name','add-category');
+}
+function delete_category(id){
+        window.location.href = `../controller/admin.controller.php?delete-category=${id}`;
+}

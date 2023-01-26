@@ -44,12 +44,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="clearBtn()"></button>
                 </div>
                 <div class="modal-body">
                     <form action="../controller/admin.controller.php" method="POST">
                         <label for="category">CATEGORY</label>
                         <input type="text" name="category" class="my-input">
+                        <input type="text" name="edit-category-id" style="display:none;">
                         <button type="submit" name="add-category" class="btn text-white w-100 mt-4" style="background-color:#00c010;">Save changes</button>
                     </form>
                 </div>
@@ -59,6 +60,7 @@
 
 
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/app.js"></script>
     <script src="https://kit.fontawesome.com/6360d947ff.js" crossorigin="anonymous"></script>
 </body>
 </html>     
