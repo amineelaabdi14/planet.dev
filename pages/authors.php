@@ -1,4 +1,5 @@
 <?php 
+    require'../controller/admin.controller.php';
     $_SESSION['page']='authors';
 ?>
 
@@ -22,7 +23,7 @@
             </div>
                
                 <div id="table-container" class="shadow table-responsive mb-4" style="background-color: white;">
-                        <table class="table">
+                        <table class="table rounded p-2">
                             <thead>
                                 <tr>
                                     <th>hamid</th>
@@ -112,10 +113,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="">
+                <form action="../controller/admin.controller.php" method="POST">
                     <label for="author">AUTHOR</label>
                     <input type="text" name="author" class="my-input">
-                            <button type="button" class="btn text-white w-100 mt-4" style="background-color:#00c010;">Save changes</button>
+                            <button type="submit" name="add-author" class="btn text-white w-100 mt-4" style="background-color:#00c010;">Save changes</button>
                 </form>
             </div>
             </div>
