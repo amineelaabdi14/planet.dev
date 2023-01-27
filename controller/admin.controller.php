@@ -1,5 +1,4 @@
 <?php
-require '../classes/Dbh.classe.php';
 require_once '../includes/autoload.inc.php';
 
 
@@ -10,9 +9,11 @@ if(isset($_POST['admin-login']))   login_admin();
 if(isset($_POST['admin-register']))   register_admin(); 
 if(isset($_GET['add-article']))   add_article(); 
 if(isset($_GET['delete-category']))   delete_category(); 
+if(isset($_GET['delete-article']))   delete_article(); 
 if(isset($_POST['edit-category']))   edit_category(); 
 if(isset($_POST['add-author']))   add_author(); 
 if(isset($_POST['add-category']))   add_category(); 
+if(isset($_POST['update-article']))   update_article(); 
 
 
 function login_admin(){
@@ -23,7 +24,6 @@ function login_admin(){
         $admin=new Admin($infos[0],$infos[1],$email,$infos[2]);
         $_SESSION['admin']=$admin;
         require '../pages/dashboard.php';
-        return 0;
     }
     else {
     $error='Incorrect email or password';
@@ -38,7 +38,6 @@ function register_admin(){
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
         $error='Invalid Email';
         require '../pages/register.php';
-        die;
     }
     $admin=new Admin(null,$name,$email,$password);
     $return=$admin->register();
@@ -62,7 +61,16 @@ function add_article(){
     foreach($json as $article){
         $_SESSION['admin']->add_article($article);
     }
-    header('Location:../pages/categories.php');
+    header('Location:../pages/dashboard.php');
+}
+function update_article(){
+    $id=$_POST['article-id'];
+    $title=$_POST['article-name'];
+    $content=$_POST['content'];
+    $author=$_POST['article-auth'];
+    $category=$_POST['article-cat'];
+    $_SESSION['admin']->update_article(['id'=>$id,'title'=>$title,'content'=>$content,'author'=>$author,'category'=>$category]);
+    header('Location:../pages/dashboard.php');
 }
 
 function  add_author(){
@@ -76,6 +84,12 @@ function add_category(){
     header('Location:../pages/categories.php');
 }
 
+function delete_article(){
+    $id=$_GET['delete-article'];
+    echo $_SESSION['admin']->delete_article($id);
+    header('Location:../pages/dashboard.php');
+}
+
 function show_articles(){
     $articles=$_SESSION['admin']->get_articles();
     // echo'<pre>';
@@ -84,10 +98,10 @@ function show_articles(){
     foreach($articles as $article){
         echo '<tr>
         <td>'.$article['article_title'].'</td>
-        <td>'.$article['category_name'].'</td>
-        <td>'.$article['author_name'].'</td>
+        <td id="'.$article['category_id'].'">'.$article['category_name'].'</td>
+        <td id="'.$article['author_id'].'">'.$article['author_name'].'</td>
         <td>'.$article['article_content'].'</td>
-        <td id="'.$article['article_id'].'"><i class=" text-primary fa-solid fa-pen me-5" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="edit_article_form_fill(this.parentElement)"></i><i class="fa-solid text-danger fa-trash-can"></i></td>
+        <td id="'.$article['article_id'].'"><i class=" text-primary fa-solid fa-pen me-5" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="edit_article_form_fill(this.parentElement)"></i><i class="fa-solid text-danger fa-trash-can" onclick="delete_article(this.parentElement.id)"></i></td>
         </tr>';
     }
 }
@@ -100,7 +114,7 @@ function set_categories(){
 function set_authors(){
     $authors=$_SESSION['admin']->get_authors();
     foreach($authors as $author){
-        echo '<option value="'.$author["author_name"].'">'.$author["author_name"].'</option>';
+        echo '<option value="'.$author["author_id"].'">'.$author["author_name"].'</option>';
     }
 }
 

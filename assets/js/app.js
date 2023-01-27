@@ -26,10 +26,10 @@ function send_data(){
         },
         body: JSON.stringify(data)
     })
-    .then((response) => response.text())
-    .then((result)=>{
-        console.log(result);
-    })
+    // .then((response) => response.text())
+    // .then((result)=>{
+    //     location.reload();
+    // })
 }
 
 function edit_category_form_fill(element){
@@ -44,9 +44,19 @@ function clearBtn(){
 function delete_category(id){
         window.location.href = `../controller/admin.controller.php?delete-category=${id}`;
 }
+let opened_article=0;
 function edit_article_form_fill(element){
     document.querySelector('input[name="article-name"]').value=element.parentElement.children[0].innerText;
-    document.querySelector('select[name="article-cat"]').value=element.parentElement.children[1].innerText;
-    document.querySelector('select[name="article-auth"]').value=element.parentElement.children[2].innerText;
+    document.querySelector('select[name="article-cat"]').value=element.parentElement.children[1].id;
+    document.querySelector('select[name="article-auth"]').value=element.parentElement.children[2].id;
     document.querySelector('textarea[name="content"]').value=element.parentElement.children[3].innerText;
+    document.querySelector('input[name="article-id"]').value=element.id;
+    document.getElementById('add-multiple').style.display="none";
+    document.getElementById('add-article').setAttribute('type','submit');
+    document.getElementById('add-article').setAttribute('name','update-article');
+    document.getElementById('add-article').removeAttribute('onclick');
+}
+
+function delete_article(id){
+    window.location.href = `../controller/admin.controller.php?delete-article=${id}`;
 }

@@ -21,9 +21,9 @@
         <div id="dashboard" class="py-5">
 
             <div id="stats" class="d-flex flex-wrap flex-lg-row justify-content-center justify-content-lg-between m-auto mb-5" style="width:70vw">
-                <div id="num-articles" class="stat text-white fs-4 fw-bold text-center"><p>Articles</p><span id="inner-num-articles">23</span></div>
-                <div id="num-users" class="stat text-white fs-4 fw-bold text-center"><p>Users</p><span id="inner-num-users">234</span></div>
-                <div id="num-aut" class="stat text-white fs-4 fw-bold text-center"><p>Authors</p><span id="inner-num-authors">432</span></div>
+                <div id="num-articles" class="stat text-white fs-4 fw-bold text-center m-2"><p>Articles</p><span id="inner-num-articles">23</span></div>
+                <div id="num-users" class="stat text-white fs-4 fw-bold text-center m-2"><p>Users</p><span id="inner-num-users">234</span></div>
+                <div id="num-aut" class="stat text-white fs-4 fw-bold text-center m-2"><p>Authors</p><span id="inner-num-authors">432</span></div>
             </div>
             <div class="d-flex justify-content-end mt-5 mb-5 me-5">
                 <button  id="add-author" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-right:70px;">Add</button>
@@ -58,11 +58,11 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Article</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="" class="d-flex flex-column m-auto align-items-center">
+                    <form action="../controller/admin.controller.php" class="d-flex flex-column m-auto align-items-center" method="POST">
                         <div id="add-aticle-form">
                             <div id="multi-form" class="form-counter">
                                 <label for="article-name">Name</label>
@@ -77,6 +77,7 @@
                                 </select>
                                 <label for="content" class="">Content</label>
                                 <textarea rows="5" class="w-100" name="content" ></textarea>
+                                <input type="text" name="article-id" style="display:none;">
                             </div>
                         </div>
                         <button type="button" id="add-multiple" onclick="add_form()">

@@ -3,7 +3,7 @@
 class Dbh
 {
     private static string $dbHost = "localhost";
-    private static string $dbName = "planet_dev";
+    private static string $dbName = "planet.dev";
     private static string $dbUsername = "root";
     private static string $dbPassword = "";
 

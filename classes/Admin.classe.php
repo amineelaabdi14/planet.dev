@@ -48,7 +48,7 @@ class Admin {
     public function get_articles(){
         $conn=Dbh::connect();
         try {
-            $sql="SELECT  `article_id`,`article_title`, `article_content`, categories.category_name, authors.author_name  FROM `articles` INNER JOIN `categories`on category_id=article_category INNER JOIN `authors`on author_id=article_author ";
+            $sql="SELECT  `article_id`,`article_title`, `article_content`, categories.category_name,categories.category_id, authors.author_name,authors.author_id  FROM `articles` INNER JOIN `categories`on category_id=article_category INNER JOIN `authors`on author_id=article_author ";
             $stmt=$conn->query($sql);
             $data=$stmt->fetchAll(\PDO::FETCH_ASSOC);
             return $data;
@@ -63,9 +63,11 @@ class Admin {
     public function add_article($article){
         $conn=Dbh::connect();
         try {
-            $sql="INSERT INTO `articles`( `article_title`, `article_content`, `article_category`, `article_author`) VALUES (?,?,?,?)";
-            $stmt=$conn->prepare($sql);
-            $stmt->execute([$article['name'],$article['content'],$article['category'],$article['author']]);
+            // $sql="INSERT INTO `articles`( `article_title`, `article_content`, `article_category`, `article_author`) VALUES (?,?,?,?)";
+            $sql="INSERT INTO `articles`( `article_title`, `article_content`, `article_category`, `article_author`) VALUES ('".$article['name']."','".$article['content']."',10,1)";
+            echo $sql;
+            $stmt=$conn->query($sql);
+            // $stmt->execute([$article['name'],$article['content'],5,1]);
             return true;
         } catch (\Throwable $th) {
             echo $th->getMessage();
@@ -75,11 +77,33 @@ class Admin {
         }
     }
 
-    public function delete_article(){
-        
+    public function delete_article($id){
+        $conn=Dbh::connect();
+        try {
+            $sql="DELETE FROM articles WHERE article_id=?";
+            $stmt=$conn->prepare($sql);
+            $stmt->execute([$id]);
+            return true;
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+            return false;
+        }finally{
+             Dbh::disconnect();
+        }
     }
-    public function update_article($article_id){
-        
+    public function update_article($article){
+        $conn=Dbh::connect();
+        try {
+            $sql="UPDATE articles SET article_title=?,article_content=?,article_category=?,article_author=? WHERE article_id=?";
+            $stmt=$conn->prepare($sql);
+            $stmt->execute([$article['title'],$article['content'],$article['category'],$article['author'],$article['id']]);
+            return true;
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+            return false;
+        }finally{
+             Dbh::disconnect();
+        }
     }
     public function add_author($author){
         $conn=Dbh::connect();
