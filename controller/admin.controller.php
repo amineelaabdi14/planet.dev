@@ -148,3 +148,12 @@ function delete_category(){
 
     }
 }
+function get_articles_stats(){
+    return count($_SESSION['admin']->get_articles());
+}
+function get_authors_stats(){
+    return count($_SESSION['admin']->get_authors());
+}
+function get_users_stats(){
+    return count($_SESSION['admin']->get_admins());
+}

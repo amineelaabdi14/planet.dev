@@ -44,7 +44,20 @@ class Admin {
         if(password_verify($password,$data[0]['password'])) return [$data[0]['id'],$data[0]['name'],$data[0]['password']];
         else return false;
     }
-
+    public function get_admins(){
+        $conn=Dbh::connect();
+        try {
+            $sql="SELECT  * FROM admin";
+            $stmt=$conn->query($sql);
+            $data=$stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $data;
+        } catch (\Throwable $th) {  
+            echo $th->getMessage();
+            return false;
+        }finally{
+             Dbh::disconnect();
+        }
+    }
     public function get_articles(){
         $conn=Dbh::connect();
         try {
@@ -181,6 +194,21 @@ class Admin {
             $sql="DELETE FROM categories WHERE category_id=$id";
             $stmt=$conn->query($sql);
             return true;
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+            return false;
+        }finally{
+             Dbh::disconnect();
+        }
+    }
+
+    public function get_stats($stat){
+        $conn=Dbh::connect();
+        try {
+            $sql="SELECT * FROM $stat";
+            $stmt=$conn->query($sql);
+            $stats=$stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $stats;
         } catch (\Throwable $th) {
             echo $th->getMessage();
             return false;

@@ -1,12 +1,6 @@
 <?php 
     require'../controller/admin.controller.php';
     $_SESSION['page']='dashboard';
-    if(!isset($_SESSION['admin'])){
-        
-        $_SESSION['error']="Session expired";
-        header('Location:login.php');
-    }
-    print_r($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -27,9 +21,9 @@
         <div id="dashboard" class="py-5">
 
             <div id="stats" class="d-flex flex-wrap flex-lg-row justify-content-center justify-content-lg-between m-auto mb-5" style="width:70vw">
-                <div id="num-articles" class="stat text-white fs-4 fw-bold text-center m-2"><p>Articles</p><span id="inner-num-articles">23</span></div>
-                <div id="num-users" class="stat text-white fs-4 fw-bold text-center m-2"><p>Users</p><span id="inner-num-users">234</span></div>
-                <div id="num-aut" class="stat text-white fs-4 fw-bold text-center m-2"><p>Authors</p><span id="inner-num-authors">432</span></div>
+                <div id="num-articles" class="stat text-white fs-4 fw-bold text-center m-2"><p>Articles</p><span id="inner-num-articles"><?= get_articles_stats()?></span></div>
+                <div id="num-users" class="stat text-white fs-4 fw-bold text-center m-2"><p>Users</p><span id="inner-num-users"><?= get_users_stats() ?></span></div>
+                <div id="num-aut" class="stat text-white fs-4 fw-bold text-center m-2"><p>Authors</p><span id="inner-num-authors"><?= get_authors_stats()?></span></div>
             </div>
             <div class="d-flex justify-content-end mt-5 mb-5 me-5">
                 <button  id="add-author" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-right:70px;">Add</button>
