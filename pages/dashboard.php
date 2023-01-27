@@ -1,6 +1,12 @@
 <?php 
     require'../controller/admin.controller.php';
     $_SESSION['page']='dashboard';
+    if(!isset($_SESSION['admin'])){
+        
+        $_SESSION['error']="Session expired";
+        header('Location:login.php');
+    }
+    print_r($_SESSION);
 ?>
 
 <!DOCTYPE html>
