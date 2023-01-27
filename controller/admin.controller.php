@@ -54,7 +54,7 @@ function register_admin(){
         $error='Something went wrong';
         require '../pages/login.php';
     }
-}   
+}    
 
 function add_article(){
     $json=json_decode(file_get_contents('php://input'),true);
